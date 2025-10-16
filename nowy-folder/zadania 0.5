@@ -1,0 +1,27 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: GET /spa
+    activate server
+    server-->>browser: HTML document with embedded JS
+    deactivate server
+
+    browser->>server: GET /main.css
+    activate server
+    server-->>browser: CSS file
+    deactivate server
+
+    browser->>server: GET /main.js
+    activate server
+    server-->>browser: JavaScript file
+    deactivate server
+
+    Note right of browser: JS executes and dynamically updates the page
+
+    browser->>server: GET /data.json
+    activate server
+    server-->>browser: JSON with notes
+    deactivate server
+
+  
