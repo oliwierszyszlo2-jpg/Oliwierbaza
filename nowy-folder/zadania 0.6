@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: Użytkownik wpisuje treść notatki i klika „Save”
+
+    browser->>server: POST /new_note_spa (JSON z treścią notatki)
+    activate server
+    server-->>browser: HTTP 201 Created (lub podobna odpowiedź)
+    deactivate server
+
+    Note right of browser: JavaScript aktualizuje lokalny stan aplikacji
+
+    browser->>browser: Dodanie nowej notatki do listy bez przeładowania strony
+
+    Note right of browser: Interfejs aktualizuje się dynamicznie
